@@ -1,0 +1,623 @@
+{
+  "file_id": "geography",
+  "stage": "raw_to_problem",
+  "source_file_name": "geography_questions.json",
+  "problems": [
+    {
+      "problem_id": "prob_77a17a56442a43ed1d4b894d",
+      "question_text": "“看樱花，到武大”。每年三月，成千上万游客慕名到武汉大学赏樱。樱花盛开时节，樱花大道洁白如雪，灿若云霞，落樱缤纷，美不胜收。根据物候学理论，气候条件对植物开花早晚有重要影响。下表反映1947～2022年武汉大学樱花花期的变化情况。请根据表中信息回答：武汉大学樱花花期整体是“提前/推迟”？花期长度整体是“更长/更短”？",
+      "standard_answer": "显著提前且更长",
+      "images": [
+        "test/geography_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_93de1ca2eca2ea3c9a249b98",
+      "question_text": "“看樱花，到武大”。每年三月，成千上万游客慕名到武汉大学赏樱。根据物候学理论，气候条件对植物开花早晚有重要影响。下表反映1947～2022年武汉大学樱花花期的变化情况。请结合材料与表中变化，回答：下列因素中，哪一个最可能是影响武汉大学樱花花期早晚的主要气象因素（气温/气压/降水/日照）？",
+      "standard_answer": "气温",
+      "images": [
+        "test/geography_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_e17766fb908d5936bcb52ca2",
+      "question_text": "“看樱花，到武大”。材料提到武汉大学樱花大道景观，并指出其作为全国知名度极高的赏樱地有独特魅力。请根据材料语境回答：下列表述中，最能概括其“独特魅力”的是哪一项（自然环境优美/基础设施完善/人文底蕴深厚/学术大师云集）？",
+      "standard_answer": "人文底蕴深厚",
+      "images": [
+        "test/geography_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_c0374cf4970a8d36348e4cf7",
+      "question_text": "不同类型食物的碳足迹差异显著。图1示意某市1978～2015年食物消费结构变化。图2示意该市同期消费的食物产生的碳足迹结构变化。请根据图示完成下列问题。\n（追加）概括1978～2015年该市植物源食物占比与动物源食物占比的总体变化趋势分别是什么？",
+      "standard_answer": "植物源下降；动物源上升",
+      "images": [
+        "test/geography_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_8064778566fa61a741ccaede",
+      "question_text": "不同类型食物的碳足迹差异显著。图1示意某市1978～2015年食物消费结构变化。图2示意该市同期消费的食物产生的碳足迹结构变化。题干给出：碳足迹系数=某类食物产生的碳足迹/该类食物的消费量。请根据图示完成下列问题。\n（追加）在“粮食、蔬菜、禽肉、畜肉”四类中，哪一类的碳足迹系数最大？",
+      "standard_answer": "畜肉",
+      "images": [
+        "test/geography_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_e0d41b6b4c350ecfb185a4c2",
+      "question_text": "不同类型食物的碳足迹差异显著。图1示意某市1978～2015年食物消费结构变化。图2示意该市同期消费的食物产生的碳足迹结构变化。请根据图示完成下列问题。\n（追加）若以“减少畜肉消费”作为低碳饮食调控重点，其依据应当来自图2中的哪一项关键信息？",
+      "standard_answer": "畜肉碳足迹占比最大",
+      "images": [
+        "test/geography_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_c8b2d885cae00d06176dfaf5",
+      "question_text": "不同类型食物的碳足迹差异显著。图1示意某市1978～2015年食物消费结构变化。图2示意该市同期消费的食物产生的碳足迹结构变化。请根据图示完成下列问题。\n（追加）在满足营养需求前提下，若要降低总体碳足迹，应优先用哪几类食物（水果/蔬菜/禽肉/畜肉）替代哪一类食物？",
+      "standard_answer": "水果蔬菜禽肉替代畜肉",
+      "images": [
+        "test/geography_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_557c5deed89fa079ea27a347",
+      "question_text": "如图为四个大城市的街道方向玫瑰图。不同方向的长度，代表该方向街道出现的相对频率。请根据图示回答：在“上海、夏洛特、温哥华、迪拜”四个城市中，最容易迷路的城市是哪一个？",
+      "standard_answer": "夏洛特",
+      "images": [
+        "test/geography_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_b4faf3a8d156a8ab0ef238ad",
+      "question_text": "如图为四个大城市的街道方向玫瑰图。不同方向的长度，代表该方向街道出现的相对频率。请根据图示回答：仅凭该玫瑰图信息，能否判断“上海的街道密度和平均宽度最大”？",
+      "standard_answer": "无法判断",
+      "images": [
+        "test/geography_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_2ec6dbf89e73850485d99376",
+      "question_text": "如图为四个大城市的街道方向玫瑰图。不同方向的长度，代表该方向街道出现的相对频率。请根据图示回答：仅凭该玫瑰图信息，能否判断“夏洛特的街道面积最大”？",
+      "standard_answer": "无法判断",
+      "images": [
+        "test/geography_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6e80cfa0179849e6be767188",
+      "question_text": "如图为四个大城市的街道方向玫瑰图。不同方向的长度，代表该方向街道出现的相对频率。请根据图示回答：温哥华的街道网络总体形态更接近哪一种？",
+      "standard_answer": "棋盘状",
+      "images": [
+        "test/geography_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_c142fac1cdd0a8557f691445",
+      "question_text": "如图为四个大城市的街道方向玫瑰图。不同方向的长度，代表该方向街道出现的相对频率。请根据图示回答：仅凭该玫瑰图信息，能否判断“迪拜街道总长度最长”？",
+      "standard_answer": "无法判断",
+      "images": [
+        "test/geography_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_d6531be9f816d238f86af218",
+      "question_text": "如图为四个大城市的街道方向玫瑰图。不同方向的长度，代表该方向街道出现的相对频率。请根据图示回答：影响上海街道主要方向形成的关键自然因素是哪一项（地形/气候/河流/植被）？",
+      "standard_answer": "河流",
+      "images": [
+        "test/geography_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_5092825c82a233f10d774095",
+      "question_text": "四川盆地西南缘严重缺水区地下水多咸水。研究发现：地下水排泄条件好，盐分不易积累，发育淡水；反之则发育咸水。如图示意不同丘坡地下水排泄条件。请根据图示回答：地下水排泄条件“最好”的地形—地质组合特征应是什么（坡向关系、岩层倾角与坡度角关系、是否有地下水出露）？",
+      "standard_answer": "顺向坡、倾角<坡度且出露",
+      "images": [
+        "test/geography_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_0d74334257c6b433f8c4fe27",
+      "question_text": "四川盆地西南缘缺水区地下水多咸水。如图示意岩性、断层、咸淡水界线与4个钻孔（甲、乙、丙、丁）的位置关系。请根据图示回答：甲、乙、丙、丁四个钻孔中，哪一个最可能打出淡水？",
+      "standard_answer": "甲孔",
+      "images": [
+        "test/geography_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f3d674cea7615a4bcda7ccb1",
+      "question_text": "为保证水质优良、水量充足，该区地下水开采方案中，“在断裂带附近开采”最可能带来的主要风险是什么？请依据图示的断层位置、地下水排泄条件与咸淡水分布作答。",
+      "standard_answer": "易抽到咸水",
+      "images": [
+        "test/geography_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_96d0fd777b7aa81d71b63161",
+      "question_text": "为保证水质优良、水量充足，若提出“在不同岩性区域均匀开采”的方案，请根据图示的砂岩/泥岩分布与咸淡水差异判断：该方案在水质控制上最大的不足是什么？",
+      "standard_answer": "水质差异难控制",
+      "images": [
+        "test/geography_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_fc497e39797a0184a08a002f",
+      "question_text": "为保证水质优良、水量充足，若提出“在含泥岩地段开采”的方案，请根据图示岩性特征与咸淡水形成机制判断：该方案最可能带来的直接后果是什么？",
+      "standard_answer": "取水偏咸",
+      "images": [
+        "test/geography_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_e141b902d32dad5285f530a7",
+      "question_text": "为保证水质优良、水量充足，请根据图示“咸淡水界线”与钻孔/取水层分布特征，回答：该区地下水开发更优的布井策略应体现什么空间原则（例如井深差异、布井方式）？",
+      "standard_answer": "浅井分散开采",
+      "images": [
+        "test/geography_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_4683c0fe40caa6e401c6bd3b",
+      "question_text": "沿采样点1至9方向，沙粒的平均粒径变化趋势是什么？",
+      "standard_answer": "由粗到细",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_e9c68db790773548fb72db90",
+      "question_text": "图示注释说明“分选系数数值越小表示分选性越好”。在采样点1至9中，分选性最好的是哪个采样点？",
+      "standard_answer": "采样点1",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_586e00303578e90d22fbdb10",
+      "question_text": "根据图中采样点括号内的分选系数，从采样点1到9整体上呈现怎样的变化方向？",
+      "standard_answer": "总体增大",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6f0cc74c44470b168acdfa93",
+      "question_text": "在采样点1至9中，分选性最差对应哪个采样点？（提示：分选系数越大分选性越差）",
+      "standard_answer": "采样点6",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_924a410945919b2ae9bd0432",
+      "question_text": "材料指出“冬季白天以沙漠风为主”。据此判断，绿洲在冬季白天更可能表现为哪种热力效应？（冷岛效应/热岛效应）",
+      "standard_answer": "热岛效应",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_742cda1949e8abaf4aba5643",
+      "question_text": "根据材料“冬季夜晚沙漠风和绿洲风频次相当”，可概括夜晚绿洲的热力效应强弱如何？",
+      "standard_answer": "热力效应不明显",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_1dc9db49c1787f1eaca3fe66",
+      "question_text": "结合材料对白天主导风向的描述，冬季白天更符合哪一种压强格局？",
+      "standard_answer": "沙漠高压绿洲低压",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f6c97d9d11b03753af91fa38",
+      "question_text": "请从以下四种表述中选出与材料一致的一项：冬季白天冷岛效应、冬季白天热岛效应、冬季夜晚冷岛效应、冬季夜晚热岛效应。",
+      "standard_answer": "冬季白天热岛效应",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_2df3109a24ffaab027e39db8",
+      "question_text": "材料提到“绿洲风风速衰减幅度比沙漠风小”。据此，绿洲风改善绿洲生态环境最直接的作用是什么？",
+      "standard_answer": "沙物质向沙漠迁移",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_d410dce7ce95a86705149cb9",
+      "question_text": "若以“减少绿洲区沙埋/沙侵扰”为目标，根据材料，沙物质的净输送方向应指向哪里？",
+      "standard_answer": "由绿洲指向沙漠",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_ed8f915019f22997b474a630",
+      "question_text": "请从下列可能的生态改善途径中选出最符合材料的一项：降低噪音污染、带来丰富降水、沙物质运移回沙漠、增加阳光照射强度。",
+      "standard_answer": "沙物质运移回沙漠",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_2536c0f000a106d6f577f620",
+      "question_text": "在“绿洲风对生态改善的作用机制”这一问题上，用一句话概括材料支持的机制要点是什么？",
+      "standard_answer": "把沙从绿洲搬走",
+      "images": [
+        "test/geography_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_583165faa3ee05d169b9e366",
+      "question_text": "材料对比通州与北京其他地区时，指出通州选址优势不在于哪一因素？",
+      "standard_answer": "交通运输便利",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_3547cff7c7d71ee75f782ed7",
+      "question_text": "材料中用于解释基地选址通州的核心基础是什么？",
+      "standard_answer": "育种基础雄厚",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f05258d33be5a488a4199d0b",
+      "question_text": "材料认为通州并无明显独特优势的自然条件是哪一类？",
+      "standard_answer": "气候条件",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_dbebb5e6b3ffee2457e59273",
+      "question_text": "材料中被否定为“基地选址通州核心原因”的资源要素是哪一类？",
+      "standard_answer": "土地资源",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6942e52a65e233e45d6c4517",
+      "question_text": "材料并未认为太空种子直接“打破”的农业生产属性是什么？",
+      "standard_answer": "地域性",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_049eb4a9e3dc8884875a8051",
+      "question_text": "根据材料，太空种子提升作物品质后，最直接带来的市场层面效应是什么？",
+      "standard_answer": "竞争力增强",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_1ad0611a644e0e3ddf80c6aa",
+      "question_text": "材料并未说明太空种子使农业生产的哪一特征被弱化？",
+      "standard_answer": "季节性",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f74117fe83383c1182f28edd",
+      "question_text": "材料将“保障农产品稳定供应”主要归因于哪一建设成果？",
+      "standard_answer": "育—繁—推一体化产业链",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_961e1486bc82aa70685a7c26",
+      "question_text": "材料认为航天育种的核心不在于哪一种“规模扩张”取向？",
+      "standard_answer": "扩大农业生产规模",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_620bdc814ece9b2cf7616b2a",
+      "question_text": "从材料逻辑看，航天育种不以“减少哪类投入”为核心表征？",
+      "standard_answer": "劳动力投入",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a804e0c2a970ca94c1bd46f9",
+      "question_text": "材料所指的航天育种推动农业发展的核心驱动力是什么？",
+      "standard_answer": "科技创新",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_828583501d38ebfd1982b746",
+      "question_text": "材料将“促进农业生产专业化”更符合归入哪类结果属性？",
+      "standard_answer": "衍生效果",
+      "images": [
+        "test/geography_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_bdabe54aa5761277de907983",
+      "question_text": "该小组在当地开展星空观测，为获得较好的观测效果，应优先考虑哪些因素？（从：天气、纬度、经度、高度 中选择）",
+      "standard_answer": "天气、高度",
+      "images": [
+        "test/geography_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_ea18c49e3b87ccda09b26baf",
+      "question_text": "若某夜 23:54 观测到天琴座位于天顶附近，则第二天它再次出现在同一位置的大致时刻是几点？",
+      "standard_answer": "约23:50",
+      "images": [
+        "test/geography_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_750910771ea5312ec03af390",
+      "question_text": "结合图示四季太阳位置变化：太阳的日视运动方向与其完成一次四季循环所对应的周期分别是什么？（方向：自东向西/自西向东；周期：恒星年/回归年）",
+      "standard_answer": "自东向西；回归年",
+      "images": [
+        "test/geography_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_232a8702aa42b4387e9b4476",
+      "question_text": "结合岸线对比图（2022年10月、2023年3月、2023年10月三条岸线），在冬季风影响下该沙嘴区北侧与南侧分别以哪种岸线变化过程为主？（请分别回答“北侧”“南侧”）",
+      "standard_answer": "北侧以侵蚀为主；南侧以淤积为主",
+      "images": [
+        "test/geography_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_149d3f48a74d340c8d341e4f",
+      "question_text": "材料提到极端风暴事件会带来强风巨浪与强降水等恶劣天气。若将其影响概括为“风浪增强导致岸线侵蚀更明显”，该影响机制的关键词应是什么？",
+      "standard_answer": "风浪增强，岸线侵蚀加剧",
+      "images": [
+        "test/geography_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f8da5ccb238e205ebbe63b00",
+      "question_text": "若有人将极端风暴对该沙嘴区的主要影响解释为“表层海水流速减弱，从而淤积加剧”，那么其核心过程关键词应是什么？",
+      "standard_answer": "表层海水流速减弱，淤积加剧",
+      "images": [
+        "test/geography_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_db7c0847f054c4355557bf3c",
+      "question_text": "若有人认为极端风暴会造成“表层海水流向发生改变，进而使淤积加剧”，请用一句话提炼其关键机制链条（不需要判断对错）。",
+      "standard_answer": "表层海水流向改变，导致淤积加剧",
+      "images": [
+        "test/geography_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_0418be838a179bc855c7e2e3",
+      "question_text": "若将极端风暴对该沙嘴区的影响描述为“植被受损，同时岸线整体向海扩张”，请给出该描述中的两个核心结果要点（分别写出）。",
+      "standard_answer": "植被受损；岸线向海扩张",
+      "images": [
+        "test/geography_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6d68d0e843cbf16b85e1a22d",
+      "question_text": "根据岸线三期对比（2022年10月、2023年3月、2023年10月），该沙嘴区岸线变化反映出哪些季节性规律？请回答：①冬半年北/南侧主要过程；②夏半年北/南侧主要过程；③为减缓冬季侵蚀，移动固沙障在冬季更应主要布设在哪一侧。",
+      "standard_answer": "①冬半年：北侧侵蚀、南侧淤积；②夏半年：北侧淤积、南侧侵蚀；③冬季应主要布设在北侧",
+      "images": [
+        "test/geography_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_dfe9679a1bdb39f9c6606278",
+      "question_text": "读图中“岛路网—聚落关系结构模式”示意：山地型江心岛最符合哪一种结构模式？（带状延伸型/环状延伸型/十字环绕型/自由树枝型）",
+      "standard_answer": "自由树枝型",
+      "images": [
+        "test/geography_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_800ddc5119c9a831c45a7845",
+      "question_text": "在图示四类“岛路网—聚落关系结构模式”中，哪一类最能体现“主路沿轴向延伸并不断分叉形成多级支路”的特征？",
+      "standard_answer": "自由树枝型",
+      "images": [
+        "test/geography_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_49985e2f161f7c51a3300d5c",
+      "question_text": "题干给出两类江心岛：山地型与平坝型。根据解析中对“平坝型江心岛聚落空间组织特征”的归纳，平坝型更符合哪两条表述？（沟谷湾田/密林沃野/丘麓片田/环林围田 四项中选两项）",
+      "standard_answer": "密林沃野，集中聚居；环林围田，逐路而居",
+      "images": [
+        "test/geography_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_4945e7ebe9b1ae639289d832",
+      "question_text": "结合解析对“川江段江心岛聚落布局模式差异化”的总结：山地型与平坝型分别更对应哪两类布局特征？请分别回答“山地型两条”“平坝型两条”。",
+      "standard_answer": "山地型：小规模散布、形态自由；放射状蔓延、多轴推进。平坝型：组团聚居、错落有致；集中连片、布局紧凑",
+      "images": [
+        "test/geography_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    }
+  ]
+}

@@ -1,0 +1,791 @@
+{
+  "file_id": "biology",
+  "stage": "raw_to_problem",
+  "source_file_name": "biology.json",
+  "problems": [
+    {
+      "problem_id": "prob_d993657b93b03f02eec4d030",
+      "question_text": "8. 科研人员对四种植物进行不同光照处理实验，记录开花情况如下表。请根据实验结果回答下列问题。\n（在原题干后面追加）若对植物丁进行人工补光以延长日照时间，它的开花表现更可能出现什么变化？",
+      "standard_answer": "开花延迟",
+      "images": [
+        "test/biology_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a693308f9d019cb5d3520e5d",
+      "question_text": "8. 科研人员对四种植物进行不同光照处理实验，记录开花情况如下表。请根据实验结果回答下列问题。\n（在原题干后面追加）能否据此断言“植物开花不受环境因素影响，完全由遗传物质决定”？",
+      "standard_answer": "不能",
+      "images": [
+        "test/biology_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f0be316d2198b0d0e6d12957",
+      "question_text": "8. 科研人员对四种植物进行不同光照处理实验，记录开花情况如下表。请根据实验结果回答下列问题。\n（在原题干后面追加）表中甲与乙开花差异最主要由哪类因素导致？",
+      "standard_answer": "光周期敏感性",
+      "images": [
+        "test/biology_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_1c8b2e3de3b8547835a3b956",
+      "question_text": "8. 科研人员对四种植物进行不同光照处理实验，记录开花情况如下表。请根据实验结果回答下列问题。\n（在原题干后面追加）在湖北同一地点自然种植甲与乙时，它们更可能分别在哪个季节开花？",
+      "standard_answer": "甲夏乙秋",
+      "images": [
+        "test/biology_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_21e3286625a11c6988ba8d4e",
+      "question_text": "5. 水母雪莲是我国的一种名贵药材，主要活性成分为次生代谢产物黄酮。研究人员开展了悬浮培养水母雪莲细胞合成黄酮的工程技术研究，结果如表所示。请根据实验结果回答下列问题。\n（追加）黄酮产量与细胞干重的关系是什么？",
+      "standard_answer": "正相关",
+      "images": [
+        "test/biology_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_cd74e3d9ea0ce7d865ce7dbe",
+      "question_text": "5. 水母雪莲是我国的一种名贵药材，主要活性成分为次生代谢产物黄酮。研究人员开展了悬浮培养水母雪莲细胞合成黄酮的工程技术研究，结果如表所示。请根据实验结果回答下列问题。\n（追加）黄酮是否为水母雪莲细胞生存和生长所必需的物质？",
+      "standard_answer": "非必需",
+      "images": [
+        "test/biology_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a2959254c121bab06b76f7e3",
+      "question_text": "5. 水母雪莲是我国的一种名贵药材，主要活性成分为次生代谢产物黄酮。研究人员开展了悬浮培养水母雪莲细胞合成黄酮的工程技术研究，结果如表所示。请根据实验结果回答下列问题。\n（追加）氧气供给对水母雪莲细胞的生长、分裂和代谢是否必要？",
+      "standard_answer": "必要",
+      "images": [
+        "test/biology_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_3f366c7ea7bc358137651bd5",
+      "question_text": "5. 水母雪莲是我国的一种名贵药材，主要活性成分为次生代谢产物黄酮。研究人员开展了悬浮培养水母雪莲细胞合成黄酮的工程技术研究，结果如表所示。请根据实验结果回答下列问题。\n（追加）哪一转速最有利于细胞分裂并促进黄酮积累？",
+      "standard_answer": "75 r/min",
+      "images": [
+        "test/biology_question_00002.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_620a2f1ccbbbda683f1ce4e9",
+      "question_text": "9. 阿维菌素是一种用于害虫防治的生物农药。科研人员研究了阿维菌素对褐飞虱的影响，结果如下图所示。请根据图中信息回答下列问题。\n（追加）图中低浓度阿维菌素的两条作用路径①与②，对褐飞虱最终结果的作用效果是否相反？",
+      "standard_answer": "不相反",
+      "images": [
+        "test/biology_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_9f884bb38260126308d0ef9c",
+      "question_text": "9. 阿维菌素是一种用于害虫防治的生物农药。科研人员研究了阿维菌素对褐飞虱的影响，结果如下图所示。请根据图中信息回答下列问题。\n（追加）阿维菌素对褐飞虱的作用是否具有浓度依赖性？",
+      "standard_answer": "有依赖性",
+      "images": [
+        "test/biology_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_81c20584bc8d946e638aa29f",
+      "question_text": "9. 阿维菌素是一种用于害虫防治的生物农药。科研人员研究了阿维菌素对褐飞虱的影响，结果如下图所示。请根据图中信息回答下列问题。\n（追加）雌虫体内成熟生殖细胞数量与卵黄蛋白原含量的关系更符合哪一种？",
+      "standard_answer": "正相关",
+      "images": [
+        "test/biology_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_0bf8d8266cb348a61a3615fa",
+      "question_text": "9. 阿维菌素是一种用于害虫防治的生物农药。科研人员研究了阿维菌素对褐飞虱的影响，结果如下图所示。请根据图中信息回答下列问题。\n（追加）若干扰AstA蛋白与AstA受体的结合，褐飞虱产卵量将发生什么变化？",
+      "standard_answer": "产卵量增加",
+      "images": [
+        "test/biology_question_00003.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_2a4a93a91d766bf8ae2a3f38",
+      "question_text": "11. 科研人员以蚯蚓为实验对象，将其培养在浓度为 1 mg/kg 的 TBBPA 污染土壤中进行 30 天富集实验，然后将蚯蚓转至干净土壤进行 30 天排出实验，实验结果如下图。请根据图示与题干信息回答下列问题。\n（追加）蚯蚓在生态系统中通常兼具哪两类生物角色？",
+      "standard_answer": "消费者和分解者",
+      "images": [
+        "test/biology_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6c3d44a527440eefd65ab57f",
+      "question_text": "11. 科研人员以蚯蚓为实验对象，将其培养在浓度为 1 mg/kg 的 TBBPA 污染土壤中进行 30 天富集实验，然后将蚯蚓转至干净土壤进行 30 天排出实验，实验结果如下图。请根据图示与题干信息回答下列问题。\n（追加）从曲线变化看，蚯蚓对 TBBPA 的富集在约第 20 天后呈现什么特征？",
+      "standard_answer": "趋于饱和",
+      "images": [
+        "test/biology_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_3e312daa7a724c48327343ed",
+      "question_text": "11. 科研人员以蚯蚓为实验对象，将其培养在浓度为 1 mg/kg 的 TBBPA 污染土壤中进行 30 天富集实验，然后将蚯蚓转至干净土壤进行 30 天排出实验，实验结果如下图。请根据图示与题干信息回答下列问题。\n（追加）若实验结束时蚯蚓被捕食者取食，TBBPA 是否会沿食物链发生传递？",
+      "standard_answer": "会传递",
+      "images": [
+        "test/biology_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_7b64079ceb217cfc0754f30d",
+      "question_text": "11. 科研人员以蚯蚓为实验对象，将其培养在浓度为 1 mg/kg 的 TBBPA 污染土壤中进行 30 天富集实验，然后将蚯蚓转至干净土壤进行 30 天排出实验，实验结果如下图。请根据图示与题干信息回答下列问题。\n（追加）第 15 天蚯蚓体内富集的 TBBPA 浓度约为初始土壤浓度的多少倍？",
+      "standard_answer": "约8倍",
+      "images": [
+        "test/biology_question_00004.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_38a7e461575bff627748dffd",
+      "question_text": "12. 某学生重复孟德尔豌豆杂交实验，取一粒黄色圆粒F1种子（YyRr），培育成植株，成熟后随机取4个豆荚，所得32粒豌豆种子表型计数结果如表所示。请根据表中信息回答下列问题。\n（追加）能否据此确定“黄色圆粒”种子的具体粒数？",
+      "standard_answer": "不能确定",
+      "images": [
+        "test/biology_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_ef3ce48392375ed2854a32e2",
+      "question_text": "12. 某学生重复孟德尔豌豆杂交实验，取一粒黄色圆粒F1种子（YyRr），培育成植株，成熟后随机取4个豆荚，所得32粒豌豆种子表型计数结果如表所示。请根据表中信息回答下列问题。\n（追加）能否据此判断“含R配子活力低于含r配子”？",
+      "standard_answer": "不能确定",
+      "images": [
+        "test/biology_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a4fd66a92f56f177bbe80618",
+      "question_text": "12. 某学生重复孟德尔豌豆杂交实验，取一粒黄色圆粒F1种子（YyRr），培育成植株，成熟后随机取4个豆荚，所得32粒豌豆种子表型计数结果如表所示。请根据表中信息回答下列问题。\n（追加）若更换批次并仍随机取4个豆荚，所得种子表型计数是否可能不同？",
+      "standard_answer": "可能不同",
+      "images": [
+        "test/biology_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_b030ce792f83d163708531a0",
+      "question_text": "12. 某学生重复孟德尔豌豆杂交实验，取一粒黄色圆粒F1种子（YyRr），培育成植株，成熟后随机取4个豆荚，所得32粒豌豆种子表型计数结果如表所示。请根据表中信息回答下列问题。\n（追加）本实验的“圆粒:皱粒”表型比是否支持分离定律的预期？",
+      "standard_answer": "不支持",
+      "images": [
+        "test/biology_question_00005.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_fcdd42c722e4784776074925",
+      "question_text": "13. 科研人员以 SA-β-Gal 作为细胞衰老的分子标志，以 EdU 作为细胞 DNA 复制的标记，揭示了 AP2A1 蛋白通过调节 p53 蛋白表达量来影响细胞衰老的机制，实验结果如下图。请根据图示信息回答下列问题。\n（追加）对照组中是否存在衰老细胞？",
+      "standard_answer": "存在",
+      "images": [
+        "test/biology_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_57cf28f12b5f19e52557bf7d",
+      "question_text": "13. 科研人员以 SA-β-Gal 作为细胞衰老的分子标志，以 EdU 作为细胞 DNA 复制的标记，揭示了 AP2A1 蛋白通过调节 p53 蛋白表达量来影响细胞衰老的机制，实验结果如下图。请根据图示信息回答下列问题。\n（追加）AP2A1 过表达对 p53 蛋白水平的影响是什么？",
+      "standard_answer": "促进p53升高",
+      "images": [
+        "test/biology_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_8ee0e0e66f3bc5b9749ec0ad",
+      "question_text": "13. 科研人员以 SA-β-Gal 作为细胞衰老的分子标志，以 EdU 作为细胞 DNA 复制的标记，揭示了 AP2A1 蛋白通过调节 p53 蛋白表达量来影响细胞衰老的机制，实验结果如下图。请根据图示信息回答下列问题。\n（追加）能否据此推断“衰老细胞中各种蛋白的表达量都上升”？",
+      "standard_answer": "不能",
+      "images": [
+        "test/biology_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_3a78c96f7867b5ba563a1cdb",
+      "question_text": "13. 科研人员以 SA-β-Gal 作为细胞衰老的分子标志，以 EdU 作为细胞 DNA 复制的标记，揭示了 AP2A1 蛋白通过调节 p53 蛋白表达量来影响细胞衰老的机制，实验结果如下图。请根据图示信息回答下列问题。\n（追加）含 EdU 标记细胞比例越大，通常表示细胞处于什么状态？",
+      "standard_answer": "增殖更旺盛",
+      "images": [
+        "test/biology_question_00006.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_e1a8697635915f2b750f719d",
+      "question_text": "15. 花鼠取食偏好红松球果，且具有分散贮食和遗忘贮藏点的特性。研究人员在2019~2023年间对某地红松林中花鼠种群数量和红松结实量开展调查。花鼠种群5年的调查结果如下表。请根据上述材料与表中信息回答下列问题。\n（追加）花鼠对红松种子的生态作用更符合哪一种？",
+      "standard_answer": "促进传播",
+      "images": [
+        "test/biology_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6f4574d070d64dfc892656c7",
+      "question_text": "15. 花鼠取食偏好红松球果，且具有分散贮食和遗忘贮藏点的特性。研究人员在2019~2023年间对某地红松林中花鼠种群数量和红松结实量开展调查。已知2022年红松结实量最高，且与其余四年存在显著差异；其余四年之间的结实量无显著差异。花鼠种群5年的调查结果如下表。请根据上述材料与表中信息回答下列问题。\n（追加）能否据此推断“红松结实量受花鼠种群数量调控”？",
+      "standard_answer": "不能推断",
+      "images": [
+        "test/biology_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_54bb46d55f44e069ac6ca652",
+      "question_text": "15. 花鼠取食偏好红松球果，且具有分散贮食和遗忘贮藏点的特性。研究人员在2019~2023年间对某地红松林中花鼠种群数量和红松结实量开展调查。花鼠种群5年的调查结果如下表。请根据表中信息回答下列问题。\n（追加）花鼠种群数量波动与性比变化是否可能存在关联？",
+      "standard_answer": "可能有关联",
+      "images": [
+        "test/biology_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_05e45c7de1211d62245e0b38",
+      "question_text": "15. 花鼠取食偏好红松球果，且具有分散贮食和遗忘贮藏点的特性。研究人员在2019~2023年间对某地红松林中花鼠种群数量和红松结实量开展调查。花鼠种群5年的调查结果如下表。请根据表中信息回答下列问题。\n（追加）从年龄结构看，该花鼠种群类型更符合哪一种？",
+      "standard_answer": "增长型",
+      "images": [
+        "test/biology_question_00007.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_4b7f60f5d8efca9aefe96ef0",
+      "question_text": "16. 若在一个随机交配的二倍体生物种群中，偶然出现一个有利突变基因，该突变基因可能是隐性或显性，具有突变表型的个体更容易生存和繁衍。图1与图2是自然选择下突变基因频率变化趋势图。请根据图示信息回答下列问题。\n（追加）仅依据图1中突变基因频率在后期接近或达到1，能否判定已形成新物种？",
+      "standard_answer": "不能判定",
+      "images": [
+        "test/biology_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f02c47fe0a442475295e2cc8",
+      "question_text": "16. 若在一个随机交配的二倍体生物种群中，偶然出现一个有利突变基因，该突变基因可能是隐性或显性，具有突变表型的个体更容易生存和繁衍。图1与图2是自然选择下突变基因频率变化趋势图。请根据图示信息回答下列问题。\n（追加）对比两图，上升更快的一条曲线更可能对应哪类突变基因？",
+      "standard_answer": "显性突变",
+      "images": [
+        "test/biology_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_40f58cdc6128cd689c2fe7e4",
+      "question_text": "16. 若在一个随机交配的二倍体生物种群中，偶然出现一个有利突变基因，该突变基因可能是隐性或显性，具有突变表型的个体更容易生存和繁衍。图1与图2是自然选择下突变基因频率变化趋势图。请根据图示信息回答下列问题。\n（追加）图2中该有利突变基因的频率长期演化后最终更可能达到什么数值？",
+      "standard_answer": "达到1",
+      "images": [
+        "test/biology_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_828e927f09f475ca1345d991",
+      "question_text": "16. 若在一个随机交配的二倍体生物种群中，偶然出现一个有利突变基因，该突变基因可能是隐性或显性，具有突变表型的个体更容易生存和繁衍。图1与图2是自然选择下突变基因频率变化趋势图。请根据图示信息回答下列问题。\n（追加）图2在约200~400代增幅较慢，更可能对应哪类基因型个体比例较低？",
+      "standard_answer": "纯合突变体少",
+      "images": [
+        "test/biology_question_00008.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_312c3afb4181b84494bea92d",
+      "question_text": "18. 研究表明，人类女性体细胞中仅有一条X染色体保持活性。基因G编码G蛋白，等位基因g编码活性低的g蛋白；缺失G基因的个体会患某遗传病。图示为该家族系谱图，且已知II-1不含g基因。请根据材料与系谱图回答下列问题。\n（追加）III-3个体的致病基因来源是否来自I-2？",
+      "standard_answer": "否",
+      "images": [
+        "test/biology_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f90ae9494d3be2db274265f3",
+      "question_text": "18. 研究表明，人类女性体细胞中仅有一条X染色体保持活性。基因G编码G蛋白，等位基因g编码活性低的g蛋白；缺失G基因的个体会患某遗传病。图示为该家族系谱图，且已知II-1不含g基因。随机选取III-5体内200个体细胞，发现其中100个细胞只表达G蛋白，另100个细胞只表达g蛋白。请根据材料与系谱图回答下列问题。\n（追加）III-5细胞中失活的X染色体是否一定来自母方？",
+      "standard_answer": "不一定",
+      "images": [
+        "test/biology_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_c2442c3706007a96ae3fbffc",
+      "question_text": "18. 研究表明，人类女性体细胞中仅有一条X染色体保持活性。基因G编码G蛋白，等位基因g编码活性低的g蛋白；缺失G基因的个体会患某遗传病。图示为该家族系谱图，且已知II-1不含g基因。请根据材料与系谱图回答下列问题。\n（追加）III-2个体是否可能在所有体细胞中都检测不到g蛋白？",
+      "standard_answer": "可能",
+      "images": [
+        "test/biology_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_cb7b6c0f22a65aee61bacac7",
+      "question_text": "18. 研究表明，人类女性体细胞中仅有一条X染色体保持活性。基因G编码G蛋白，等位基因g编码活性低的g蛋白；缺失G基因的个体会患某遗传病。图示为该家族系谱图，且已知II-1不含g基因。请根据材料与系谱图回答下列问题。\n（追加）若III-6与基因型为X^G Y的正常男性婚配，生出“不患该遗传病男孩”的概率是多少？",
+      "standard_answer": "1/4",
+      "images": [
+        "test/biology_question_00009.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_d1e9b12fd1a40125981f600a",
+      "question_text": "20. mRNA-X是一款新型肿瘤治疗性疫苗，可编辑肿瘤抗原，刺激机体产生特异性免疫，从而杀死肿瘤细胞（部分过程如图所示）。该疫苗由脂质材料包裹特定序列的mRNA构成。请回答下列问题。请结合图像回答。\nA. 在mRNA-X疫苗制备过程中，研究人员通常依据肿瘤抗原的什么序列信息来设计并合成能够表达该抗原的mRNA？",
+      "standard_answer": "依据肿瘤抗原的氨基酸序列信息来设计并合成对应的mRNA。",
+      "images": [
+        "test/biology_question_00010.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a6096f8c09c9a9713740da56",
+      "question_text": "20. mRNA-X是一款新型肿瘤治疗性疫苗，可编辑肿瘤抗原，刺激机体产生特异性免疫，从而杀死肿瘤细胞（部分过程如图所示）。该疫苗由脂质材料包裹特定序列的mRNA构成。请回答下列问题。请结合图像回答。\nB. 依据图示，过程中的“溶酶体逃逸”对mRNA发挥作用的关键意义是什么？",
+      "standard_answer": "使mRNA避免在溶酶体中被水解酶降解，从而能够进入细胞质并被正常翻译生成肿瘤抗原。",
+      "images": [
+        "test/biology_question_00010.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_039c73e595acbf95434da567",
+      "question_text": "20. mRNA-X是一款新型肿瘤治疗性疫苗，可编辑肿瘤抗原，刺激机体产生特异性免疫，从而杀死肿瘤细胞（部分过程如图所示）。该疫苗由脂质材料包裹特定序列的mRNA构成。请回答下列问题。请结合图像回答。\nC. 图中细胞乙增殖分化为细胞丙和细胞丁，主要依赖哪两类关键信号刺激？分别是什么？",
+      "standard_answer": "两类信号分别是：①抗原与B细胞受体（BCR）的特异性结合信号；②辅助性T细胞提供的帮助信号（包括与B细胞的接触共刺激信号以及辅助性T细胞分泌的细胞因子信号）。",
+      "images": [
+        "test/biology_question_00010.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_7f3dafd3319c416917decc1d",
+      "question_text": "20. mRNA-X是一款新型肿瘤治疗性疫苗，可编辑肿瘤抗原，刺激机体产生特异性免疫，从而杀死肿瘤细胞（部分过程如图所示）。该疫苗由脂质材料包裹特定序列的mRNA构成。请回答下列问题。请结合图像回答。\nD. 图中细胞丁是什么细胞？其在免疫应答中的主要作用是什么？",
+      "standard_answer": "细胞丁是记忆B细胞；其作用是在相同肿瘤抗原再次进入机体时迅速增殖并分化为浆细胞，产生大量特异性抗体，从而快速发动体液免疫应答。",
+      "images": [
+        "test/biology_question_00010.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_aa682d8082b0a464aadb32c3",
+      "question_text": "20. mRNA-X是一款新型肿瘤治疗性疫苗，可编辑肿瘤抗原，刺激机体产生特异性免疫，从而杀死肿瘤细胞（部分过程如图所示）。该疫苗由脂质材料包裹特定序列的mRNA构成。请回答下列问题。请结合图像回答。\nE. 相对于放射治疗，利用mRNA疫苗治疗癌症的优势体现在哪里？（回答一点即可）",
+      "standard_answer": "可诱导特异性免疫更有针对性地清除肿瘤细胞，对正常细胞的附带损伤相对较小。",
+      "images": [
+        "test/biology_question_00010.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_4b282a478e7e3583fc8f8dc4",
+      "question_text": "22. 治疗疟疾的药物青蒿素主要从植物黄花蒿中提取，但含量低。为培育青蒿素含量高的黄花蒿新品种，科研工作者开展了相关研究，发现青蒿素主要在叶片的腺毛中合成与积累，并受到水杨酸（SA）和茉莉酸甲酯（MeJA）等植物激素的调节。研究表明，SA和MeJA通过调控miR160的表达量（miR160为一种微小RNA，能与靶mRNA结合并引起后者降解），影响黄花蒿腺毛密度和青蒿素含量。miR160的一种靶mRNA编码ARF1蛋白，该蛋白影响青蒿素合成关键基因DBR2的表达。研究结果如图所示。请回答下列问题。请结合图像回答。\nA. 青蒿素主要在叶片的腺毛中合成与积累，其根本原因是什么？",
+      "standard_answer": "与青蒿素合成相关的基因在叶片腺毛细胞中选择性表达。",
+      "images": [
+        "test/biology_question_00011.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_3b87f73ac97f8b264986b17c",
+      "question_text": "22. 治疗疟疾的药物青蒿素主要从植物黄花蒿中提取，但含量低。为培育青蒿素含量高的黄花蒿新品种，科研工作者开展了相关研究，发现青蒿素主要在叶片的腺毛中合成与积累，并受到水杨酸（SA）和茉莉酸甲酯（MeJA）等植物激素的调节。研究表明，SA和MeJA通过调控miR160的表达量（miR160为一种微小RNA，能与靶mRNA结合并引起后者降解），影响黄花蒿腺毛密度和青蒿素含量。miR160的一种靶mRNA编码ARF1蛋白，该蛋白影响青蒿素合成关键基因DBR2的表达。研究结果如图所示。请回答下列问题。请结合图像回答。\nB. 据图分析，miR160的表达量与青蒿素含量呈现什么相关性？并据此推测外源MeJA处理对青蒿素含量的影响是什么？",
+      "standard_answer": "miR160表达量与青蒿素含量呈负相关；外源MeJA处理会使青蒿素含量增加。",
+      "images": [
+        "test/biology_question_00011.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_2b937a8d5a163f172e0315d9",
+      "question_text": "22. 治疗疟疾的药物青蒿素主要从植物黄花蒿中提取，但含量低。为培育青蒿素含量高的黄花蒿新品种，科研工作者开展了相关研究，发现青蒿素主要在叶片的腺毛中合成与积累，并受到水杨酸（SA）和茉莉酸甲酯（MeJA）等植物激素的调节。研究表明，SA和MeJA通过调控miR160的表达量（miR160为一种微小RNA，能与靶mRNA结合并引起后者降解），影响黄花蒿腺毛密度和青蒿素含量。miR160的一种靶mRNA编码ARF1蛋白，该蛋白影响青蒿素合成关键基因DBR2的表达。研究结果如图所示。请回答下列问题。请结合图像回答。\nC. 基于上述材料，miR160通过直接影响什么来调控青蒿素的合成？",
+      "standard_answer": "miR160通过直接影响ARF1蛋白的合成（或ARF1基因/靶mRNA的表达）来调控青蒿素合成。",
+      "images": [
+        "test/biology_question_00011.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_5d87b8a6aedcbdbf234dca53",
+      "question_text": "22. 治疗疟疾的药物青蒿素主要从植物黄花蒿中提取，但含量低。为培育青蒿素含量高的黄花蒿新品种，科研工作者开展了相关研究，发现青蒿素主要在叶片的腺毛中合成与积累，并受到水杨酸（SA）和茉莉酸甲酯（MeJA）等植物激素的调节。研究表明，SA和MeJA通过调控miR160的表达量（miR160为一种微小RNA，能与靶mRNA结合并引起后者降解），影响黄花蒿腺毛密度和青蒿素含量。miR160的一种靶mRNA编码ARF1蛋白，该蛋白影响青蒿素合成关键基因DBR2的表达。研究结果如图所示。请回答下列问题。请结合图像回答。\nD. 请写出SA、miR160、ARF1和DBR2调控青蒿素生物合成的通路是什么？（用“→”表示促进，用“—|”表示抑制）",
+      "standard_answer": "SA—|miR160—|ARF1→DBR2→青蒿素。",
+      "images": [
+        "test/biology_question_00011.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_39a76e092c1af7e94ca8ce83",
+      "question_text": "22. 治疗疟疾的药物青蒿素主要从植物黄花蒿中提取，但含量低。为培育青蒿素含量高的黄花蒿新品种，科研工作者开展了相关研究，发现青蒿素主要在叶片的腺毛中合成与积累，并受到水杨酸（SA）和茉莉酸甲酯（MeJA）等植物激素的调节。研究表明，SA和MeJA通过调控miR160的表达量（miR160为一种微小RNA，能与靶mRNA结合并引起后者降解），影响黄花蒿腺毛密度和青蒿素含量。miR160的一种靶mRNA编码ARF1蛋白，该蛋白影响青蒿素合成关键基因DBR2的表达。研究结果如图所示。请回答下列问题。请结合图像回答。\nE. 请根据上述材料提出一种培育青蒿素含量高的黄花蒿新品种的思路是什么？",
+      "standard_answer": "通过基因工程敲除miR160基因或抑制miR160基因的表达，以提高青蒿素含量。",
+      "images": [
+        "test/biology_question_00011.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_e693d539bcbdd5bc45fd1b47",
+      "question_text": "4. 植物甲的花产量、品质（与叶黄素含量呈正相关）与光照长短密切相关。研究人员用不同光照处理植物甲幼苗，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）第①组处理在“首次开花时间”和“鲜花累计平均产量”两方面分别呈现什么结果？",
+      "standard_answer": "早开花但产量最低",
+      "images": [
+        "test/biology_question_00012.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_44d7829e3ce4f4996a694571",
+      "question_text": "4. 植物甲的花产量、品质（与叶黄素含量呈正相关）与光照长短密切相关。研究人员用不同光照处理植物甲幼苗，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）花品质（以叶黄素含量表征）与处理中的“黑暗时长”之间是否呈负相关？",
+      "standard_answer": "不呈负相关",
+      "images": [
+        "test/biology_question_00012.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_fb6fdc3068de3081dd042ca8",
+      "question_text": "4. 植物甲的花产量、品质（与叶黄素含量呈正相关）与光照长短密切相关。研究人员用不同光照处理植物甲幼苗，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）若需同时兼顾花的产量与品质，应优先选择哪一组光照处理？",
+      "standard_answer": "选择第②组",
+      "images": [
+        "test/biology_question_00012.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_31059fc320eeca0d9e052d70",
+      "question_text": "4. 植物甲的花产量、品质（与叶黄素含量呈正相关）与光照长短密切相关。研究人员用不同光照处理植物甲幼苗，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）花的叶黄素含量与鲜花累计平均产量之间是否呈正相关？",
+      "standard_answer": "不呈正相关",
+      "images": [
+        "test/biology_question_00012.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_0121929f0f9b899f269b929f",
+      "question_text": "6. 研究人员以野生型水稻和突变型水稻（乙烯受体缺失）等作为材料，探究乙烯对水稻根系生长的影响，结果如下表所示。请根据表中信息回答下列问题。\n（追加）能否仅根据“第④组为乙烯受体功能恢复型水稻”推断该组水稻只能通过转基因技术获得？",
+      "standard_answer": "不能推断",
+      "images": [
+        "test/biology_question_00013.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a620bae68f3741bd4b5ab0b5",
+      "question_text": "6. 研究人员以野生型水稻和突变型水稻（乙烯受体缺失）等作为材料，探究乙烯对水稻根系生长的影响，结果如下表所示。请根据表中信息回答下列问题。\n（追加）对比第②组与第③组，根系长度变化主要能支持哪一种直接结论？",
+      "standard_answer": "NAA促进根生长",
+      "images": [
+        "test/biology_question_00013.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_1a4ed5587425764ab83e6df4",
+      "question_text": "6. 研究人员以野生型水稻和突变型水稻（乙烯受体缺失）等作为材料，探究乙烯对水稻根系生长的影响，结果如下表所示。请根据表中信息回答下列问题。\n（追加）能否通过比较第③组与第④组直接得出“NAA对根系生长有促进作用”的结论？",
+      "standard_answer": "不能直接",
+      "images": [
+        "test/biology_question_00013.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_b70ffa6025ae52b57368ba24",
+      "question_text": "6. 研究人员以野生型水稻和突变型水稻（乙烯受体缺失）等作为材料，探究乙烯对水稻根系生长的影响，结果如下表所示。请根据表中信息回答下列问题。\n（追加）从各组“乙烯受体状态—生长素含量—根系长度”的对应关系看，乙烯更可能通过影响哪一环节来调控根系生长？",
+      "standard_answer": "生长素合成",
+      "images": [
+        "test/biology_question_00013.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_529b0b195a6c4dc040cb10ab",
+      "question_text": "10. 研究者探究不同浓度的雌激素甲对牛的卵母细胞和受精卵在体外发育的影响，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）根据不同甲浓度下“卵裂数/卵裂率”的变化趋势，甲对卵裂过程的作用更符合哪一种描述？",
+      "standard_answer": "低促高抑",
+      "images": [
+        "test/biology_question_00014.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_afddd1f02ec778c6f2acf461",
+      "question_text": "10. 研究者探究不同浓度的雌激素甲对牛的卵母细胞和受精卵在体外发育的影响，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）与对照组相比，甲浓度较高时是否会抑制第一极体排出？",
+      "standard_answer": "会抑制",
+      "images": [
+        "test/biology_question_00014.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_70813e56e30db719f08351ed",
+      "question_text": "10. 研究者探究不同浓度的雌激素甲对牛的卵母细胞和受精卵在体外发育的影响，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）在本实验条件下，哪一浓度更有利于提高受精后胚胎发育能力（以卵裂结果表征）？",
+      "standard_answer": "1 μg/mL",
+      "images": [
+        "test/biology_question_00014.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_bebdf51b1925a5907af1017f",
+      "question_text": "10. 研究者探究不同浓度的雌激素甲对牛的卵母细胞和受精卵在体外发育的影响，实验结果如下表所示。请根据表中信息回答下列问题。\n（追加）本实验中用于判断卵母细胞成熟的直接指标是什么？",
+      "standard_answer": "第一极体排出",
+      "images": [
+        "test/biology_question_00014.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_280ddf5dc6a37d8c5e2037a9",
+      "question_text": "11. 植物甲抗旱、抗病性强，植物乙分蘖能力强、结实性好。科研人员通过植物体细胞杂交技术培育出兼有甲、乙优良性状的植物丙，过程如下图所示。请根据图示信息回答下列问题。\n（追加）在过程①中，甲与乙的酶解处理时间不同，这一现象更可能反映两亲本的哪类结构差异？",
+      "standard_answer": "细胞壁差异",
+      "images": [
+        "test/biology_question_00015.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_57244091ea7e961a5caa7db0",
+      "question_text": "11. 植物甲抗旱、抗病性强，植物乙分蘖能力强、结实性好。科研人员通过植物体细胞杂交技术培育出兼有甲、乙优良性状的植物丙，过程如下图所示。请根据图示信息回答下列问题。\n（追加）过程②中用于诱导原生质体融合的常用方法更符合哪一种？",
+      "standard_answer": "PEG诱导",
+      "images": [
+        "test/biology_question_00015.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_d5d4462f933f453ae1f85bff",
+      "question_text": "11. 植物甲抗旱、抗病性强，植物乙分蘖能力强、结实性好。科研人员通过植物体细胞杂交技术培育出兼有甲、乙优良性状的植物丙，过程如下图所示。请根据图示信息回答下列问题。\n（追加）在过程④与过程⑤的培养阶段，培养基中最关键需要配比调控的两类激素是什么？",
+      "standard_answer": "生长素与细胞分裂素",
+      "images": [
+        "test/biology_question_00015.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_f0b9089d65072676b22fd47f",
+      "question_text": "11. 植物甲抗旱、抗病性强，植物乙分蘖能力强、结实性好。科研人员通过植物体细胞杂交技术培育出兼有甲、乙优良性状的植物丙，过程如下图所示。请根据图示信息回答下列问题。\n（追加）要鉴定植物丙是否为杂种植株，最直接可检测的遗传学证据是什么？",
+      "standard_answer": "染色体组成",
+      "images": [
+        "test/biology_question_00015.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_74b2b092c640ddd090721cc1",
+      "question_text": "13. 芽殖酵母通过出芽形成芽体进行无性繁殖（图1），出芽与核DNA复制同时开始。一个母体细胞出芽达到最大次数后就会衰老、死亡。科学家探究了不同因素对芽殖酵母最大分裂次数的影响，实验结果如图2所示。请根据图示信息回答下列问题。\n（追加）芽殖酵母开始出芽发生在细胞周期的哪一阶段？",
+      "standard_answer": "分裂间期",
+      "images": [],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_2ae0ba0f66477ba69fd635bd",
+      "question_text": "13. 芽殖酵母通过出芽形成芽体进行无性繁殖（图1），出芽与核DNA复制同时开始。一个母体细胞出芽达到最大次数后就会衰老、死亡。科学家探究了不同因素对芽殖酵母最大分裂次数的影响，实验结果如图2所示。请根据图示信息回答下列问题。\n（追加）从图2的组间比较看，影响芽殖酵母“最大分裂次数”的因素类型至少包括哪些？",
+      "standard_answer": "基因与环境",
+      "images": [],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_6512dc127978ff5dce58a3f9",
+      "question_text": "13. 芽殖酵母通过出芽形成芽体进行无性繁殖（图1），出芽与核DNA复制同时开始。一个母体细胞出芽达到最大次数后就会衰老、死亡。科学家探究了不同因素对芽殖酵母最大分裂次数的影响，实验结果如图2所示。请根据图示信息回答下列问题。\n（追加）成熟芽体的染色体数与母体细胞相比应属于哪种关系？",
+      "standard_answer": "相同",
+      "images": [],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_54281127b1383c8322a38f99",
+      "question_text": "13. 芽殖酵母通过出芽形成芽体进行无性繁殖（图1），出芽与核DNA复制同时开始。一个母体细胞出芽达到最大次数后就会衰老、死亡。科学家探究了不同因素对芽殖酵母最大分裂次数的影响，实验结果如图2所示。请根据图示信息回答下列问题。\n（追加）图2结果对“延长细胞生命期限”的研究可提供的核心启示是什么？",
+      "standard_answer": "提高最大分裂次数",
+      "images": [],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a1508bfbb9acc9b40932430a",
+      "question_text": "21. 气孔是指植物叶表皮组织上两个保卫细胞之间的孔隙。植物通过调节气孔大小，控制CO2进入和水分的散失，影响光合作用和含水量。科研工作者以拟南芥为实验材料，研究并发现了相关环境因素调控气孔关闭的机理（图1）。已知htl基因、rhc1基因各编码蛋白甲和乙中的一种，但对应关系未知。研究者利用野生型（wt）、htl基因功能缺失突变体（h）、rhc1基因功能缺失突变体（r）和htl/rhc1双基因功能缺失突变体（h/r），进行了相关实验，结果如图2所示。请根据材料与图示回答下列问题。\nA. 保卫细胞液泡中的溶质转运到细胞外，导致保卫细胞会发生什么变化（填“吸水”或“失水”），从而引起气孔关闭？并进一步会使植物光合作用速率如何变化（填“增大”或“不变”或“减小”）？",
+      "standard_answer": "保卫细胞失水；光合作用速率减小。",
+      "images": [
+        "test/biology_question_00017.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_99fa4b1da20128b41e88925c",
+      "question_text": "21. 气孔是指植物叶表皮组织上两个保卫细胞之间的孔隙。植物通过调节气孔大小，控制CO2进入和水分的散失，影响光合作用和含水量。科研工作者以拟南芥为实验材料，研究并发现了相关环境因素调控气孔关闭的机理（图1）。已知htl基因、rhc1基因各编码蛋白甲和乙中的一种，但对应关系未知。研究者利用野生型（wt）、htl基因功能缺失突变体（h）、rhc1基因功能缺失突变体（r）和htl/rhc1双基因功能缺失突变体（h/r），进行了相关实验，结果如图2所示。请根据材料与图示回答下列问题。\nB. 图2中的wt组和r组对比，说明在高浓度CO2条件下，rhc1基因产物对气孔关闭起什么作用（填“促进”或“抑制”）？",
+      "standard_answer": "促进。",
+      "images": [
+        "test/biology_question_00017.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_53b293c7a1fb9fa530745f06",
+      "question_text": "21. 气孔是指植物叶表皮组织上两个保卫细胞之间的孔隙。植物通过调节气孔大小，控制CO2进入和水分的散失，影响光合作用和含水量。科研工作者以拟南芥为实验材料，研究并发现了相关环境因素调控气孔关闭的机理（图1）。已知htl基因、rhc1基因各编码蛋白甲和乙中的一种，但对应关系未知。研究者利用野生型（wt）、htl基因功能缺失突变体（h）、rhc1基因功能缺失突变体（r）和htl/rhc1双基因功能缺失突变体（h/r），进行了相关实验，结果如图2所示。请根据材料与图示回答下列问题。\nC. 由图1可知，短暂干旱环境中植物体内脱落酸含量上升，这对植物的积极意义是什么？",
+      "standard_answer": "干旱时脱落酸含量升高可促进叶片脱落、抑制气孔开放（促进气孔关闭），减少蒸腾作用，降低失水、保存体内水分，从而提高植物在干旱环境中的生存能力。",
+      "images": [
+        "test/biology_question_00017.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_b0c40a346f854d627d0f91e5",
+      "question_text": "21. 气孔是指植物叶表皮组织上两个保卫细胞之间的孔隙。植物通过调节气孔大小，控制CO2进入和水分的散失，影响光合作用和含水量。科研工作者以拟南芥为实验材料，研究并发现了相关环境因素调控气孔关闭的机理（图1）。已知htl基因、rhc1基因各编码蛋白甲和乙中的一种，但对应关系未知。研究者利用野生型（wt）、htl基因功能缺失突变体（h）、rhc1基因功能缺失突变体（r）和htl/rhc1双基因功能缺失突变体（h/r），进行了相关实验，结果如图2所示。请根据材料与图示回答下列问题。\nD. 根据实验结果判断：编码蛋白甲的基因是htl还是rhc1？",
+      "standard_answer": "rhc1。",
+      "images": [
+        "test/biology_question_00017.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_1d514b21050880cd5f03120c",
+      "question_text": "22. 某种由单基因控制的常染色体显性遗传病（S病）患者表现为行走不稳、眼球震颤，多在成年发病。甲乙两人均出现这些症状。遗传咨询发现，甲的家系不符合S病遗传系谱图的特征，而乙的家系符合。经检查确诊，甲不是S病患者，而乙是。请回答下列问题。请结合图像回答。\nA. 遗传咨询时医生初步判断甲可能不是S病患者，而乙可能是该病患者，主要依据是什么（填序号）？选项：①血型 ②家族病史 ③B超检测结果。",
+      "standard_answer": "②（家族病史）。",
+      "images": [
+        "test/biology_question_00018.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_c6607376a875a313829dd75a",
+      "question_text": "22. 某种由单基因控制的常染色体显性遗传病（S病）患者表现为行走不稳、眼球震颤，多在成年发病。甲乙两人均出现这些症状。遗传咨询发现，甲的家系不符合S病遗传系谱图的特征，而乙的家系符合。经检查确诊，甲不是S病患者，而乙是。请回答下列问题。请结合图像回答。\nB. 系谱图分析是遗传疾病诊断和优生的重要依据。下列四种单基因遗传病系谱图（①②③④）中：哪一种系谱图一定不属于S病？判断理由是什么？并指出：哪一种（或哪些）系谱图一定属于常染色体显性遗传病？",
+      "standard_answer": "一定不属于S病的是③；理由：③中双亲（I-1、I-2）均不患病却生出患病子代（II-3），体现隐性遗传特征，而S病为常染色体显性遗传。一定属于常染色体显性遗传病的是①和②。",
+      "images": [
+        "test/biology_question_00018.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    }
+  ]
+}
