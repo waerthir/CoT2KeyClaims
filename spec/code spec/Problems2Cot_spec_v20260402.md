@@ -16,12 +16,19 @@
 - 只保留通过全部检查的完整 CoT 文件
 - 让下一层 `CotT2keyClaims` 直接读取完整 CoT 文件，而不是先依赖第二层再合并一个大文件
 
-这一版的关键变化有四个：
+这一版有六个关键约束：
 
-1. `cot` 改为单个字符串字段，不再使用列表式 `cot_steps`
+1. `cot` 是单个字符串字段，不再使用列表式 `cot_steps`
 2. `layer_cot/aaa/` 目录下直接存放 CoT 文件，不再使用 `CoT_fragments/` 子目录
 3. 第二层不再生成 `layer_cot/aaa/aaa.json` 这种汇总主包
-4. 被判定失败或重复的候选文件直接删除，不再保留 `discard` 终止文件
+4. 三个串行工序的状态标志统一采用 `null / false / true`
+5. 初始化扫描器只允许读和分类，不允许把未完成文件直接改判为失败
+6. 删除动作只允许发生在某个具体工序完成对该文件的处理之后
+
+这里提前明确一句：
+
+- `cleanup_pending` 不是文件里的正式业务状态，也不是扫描器新判出来的失败
+- 它只是启动扫描时对“上次已经写出终止结果、但删除动作没来得及完成的残留文件”的临时分类标签
 
 这个设计的核心意图是：
 
@@ -64,7 +71,38 @@
 - 不再创建 `layer_cot/aaa/CoT_fragments/` 子目录
 - 不再生成 `layer_cot/aaa/aaa.json`
 - CoT 文件一旦创建或更新，必须立即写盘
-- 若候选被判定失败或重复，则直接删除对应文件
+- 若候选被判定失败或重复，则最终应删除对应文件
+
+删除纪律必须单独强调：
+
+- 初始化扫描、分类、配额计算都属于只读流程
+- 只读流程不得修改已有 CoT 文件
+- 只读流程不得把某个 `null` 状态直接改写成失败结果
+- 只读流程不得直接执行删除
+- 删除动作只允许由某个具体工序在“该工序已经完成对该文件的处理”之后执行
+- 若程序中断导致某个终止文件尚未删掉，启动扫描时只能把它识别为 `cleanup_pending`，后续再交给执行器完成清理
+
+### 2.3 关于 `cleanup_pending`
+
+这一点单独写清楚：
+
+- `cleanup_pending` 不是要写回 JSON 的字段
+- `cleanup_pending` 不是第二层长期维护的一类结果
+- `cleanup_pending` 只出现在“启动扫描后的内存分类结果”里
+
+它的意图只有一个：
+
+- 防止实现者把扫描器写成“看到异常状态就立即删文件”
+
+正确理解应当是：
+
+- 某个工序已经完成，并且已经把终止结果写进文件
+- 但程序在删除动作发生前中断了
+- 下次启动时，扫描器读到这个残留文件
+- 扫描器只把它标记为 `cleanup_pending`
+- 真正删除仍然由后续执行器完成
+
+也就是说，`cleanup_pending` 的存在是为了把“扫描分类”和“执行删除”严格分开。
 
 ## 3. 标识规则
 
@@ -160,31 +198,85 @@
 - 类型是单个字符串
 - 不再使用列表式 `cot_steps`
 
-这个字符串可以包含多行文本，也可以在字符串内部自行写成“步骤 1 / 步骤 2 / 步骤 3”的样式，但在 JSON 结构层面它始终只是一个字符串。
+当前 spec 只约束 `cot` 是文本串，还没有确定它内部的具体格式。
 
-### 5.2 核心标志位
+因此当前版本不假设：
 
-每个 CoT 文件保留四个核心标志位：
+- 一定是“步骤列表”
+- 一定按换行组织
+- 一定有固定模板
+
+这一点应留待后续单独确定。
+
+### 5.2 三值状态原则
+
+当前版本中，三个串行工序都使用三值状态：
+
+- `null`
+  表示该工序尚未执行完成
+- `true` 或 `false`
+  表示该工序已经执行完成
+
+这里最重要的不是把 `true` 和 `false` 简单理解成“好”或“坏”，而是：
+
+- `null` = 还没做完
+- 非 `null` = 这个工序已经做完并得到了结果
+
+这样做的价值是：
+
+- 扫描器可以明确区分“未完成”和“已完成但结果不同”
+- 恢复执行时可以准确知道下一步该接哪一道工序
+- 不会把 `false` 和“还没做”混淆
+
+四个核心标志位定义如下：
 
 1. `answer_matches_standard`
-   表示该候选给出的最终答案是否和标准答案一致
+   - `null`：尚未做答案检查
+   - `true`：答案检查已完成，且答案匹配标准答案
+   - `false`：答案检查已完成，但答案不匹配；该文件应进入终止删除路径
 
-2. `gemini_checked`
-   表示该候选是否已经经过 Gemini 细节性检查
+2. `is_duplicate_with_existing_complete_method`
+   - `null`：尚未完成“是否与已有完整解法重复”的判定
+   - `false`：该工序已完成，结果为“可继续”
+   - `true`：该工序已完成，结果为“与已有完整解法重复”；该文件应进入终止删除路径
 
-3. `is_duplicate_with_existing_complete_method`
-   表示该候选是否与现有完整解法重复
+   这里的 `false` 有两种合法来源：
+
+   - 当前题目不要求多解，因此本工序被跳过并直接记为“可继续”
+   - 当前题目要求多解，且经 GPT 检查后确认“不重复”
+
+3. `gemini_checked`
+   - `null`：尚未完成 Gemini 细节检查
+   - `true`：Gemini 细节检查已完成，且该文件通过
+   - `false`：Gemini 细节检查已完成，但该文件不通过；该文件应进入终止删除路径
 
 4. `is_complete_fragment`
-   表示该候选是否已经成为一个可直接下放到下一层的完整 CoT
+   - `false`：当前还不是完整 CoT
+   - `true`：当前已经是可直接下放到下一层的完整 CoT
 
 补充说明：
 
-- `answer_matches_standard = false` 的文件不会继续保留
-- `is_duplicate_with_existing_complete_method = true` 的文件也不会继续保留
-- 因此，磁盘上长期存在的文件只会是“未完成”或“完整”两类
+- `is_complete_fragment = false` 本身绝不等于失败
+- 扫描器不能因为某个文件 `is_complete_fragment = false` 就把它删掉
+- 扫描器也不能因为某个工序标志是 `null` 就把它改判为失败
 
 ### 5.3 `CoTFragment`
+
+当前版本要明确一个原则：
+
+- 第二层输出文件相对于第一层 `ProblemPackage` 里的单题记录，是“增量式”的
+- 也就是说，第二层不会只保留自己新增的字段
+- 由于第一层最终字段集合还没有完全定稿，当前版本应尽量保留第一层已经给出的可用字段
+
+因此，当前 CoT 文件里的字段可分成两类：
+
+1. 保留字段
+   来自第一层单题记录，当前原则上尽量保留
+
+2. 增量字段
+   由第二层新增，用于表达 CoT 内容、工序状态和方法编号
+
+下面的示例只展示当前最关键的一批字段，不代表最终字段全集。
 
 当前版本建议的文件结构为：
 
@@ -192,19 +284,26 @@
 {
   "file_id": "aaa",
   "problem_id": "prob_9b0a7ef70ee83d702776eea6",
+  "question_text": "题目文本",
+  "images": ["test/img1.png"],
+  "source_meta": {},
+  "multi_solution_hint": null,
+  "ingest_status": "ready",
   "method_id": 1,
-  "cot": "步骤1\n步骤2\n步骤3",
+  "cot": "<model_generated_cot_text>",
   "generated_answer": "模型答案",
   "standard_answer": "标准答案",
   "answer_matches_standard": null,
-  "gemini_checked": false,
   "is_duplicate_with_existing_complete_method": null,
+  "gemini_checked": null,
   "is_complete_fragment": false
 }
 ```
 
 字段说明：
 
+- 第一层保留字段
+  当前版本原则上尽量保留，不在此处穷举冻结
 - `cot`
   当前候选里的完整 CoT 文本
 - `generated_answer`
@@ -214,32 +313,49 @@
 - `answer_matches_standard`
   初始为 `null`
   答案检查通过后写为 `true`
-  若检查失败，当前文件直接删除
-- `gemini_checked`
-  初始为 `false`
-  Gemini 完成细节检查并写回新版本 CoT 后写为 `true`
+  若检查失败，先写为 `false`，再进入删除流程
 - `is_duplicate_with_existing_complete_method`
   初始为 `null`
-  判重通过后写为 `false`
-  若判定重复，当前文件直接删除
+  若当前题目不要求多解，则本工序直接写为 `false`
+  若当前题目要求多解且经 GPT 判定不重复，则写为 `false`
+  若判定重复，则先写为 `true`，再进入删除流程
+- `gemini_checked`
+  初始为 `null`
+  Gemini 完成细节检查并通过后写为 `true`
+  若 Gemini 完成细节检查但当前候选不通过，则先写为 `false`，再进入删除流程
 - `is_complete_fragment`
   初始为 `false`
-  只有通过全部流程后，才写为 `true`
+  只有当前面三个串行工序都已完成且结果允许继续时，才写为 `true`
 
-### 5.4 关于 discard
+### 5.4 删除规则与 `cleanup_pending`
 
 当前版本不再把 `discard` 设计成一类需要长期保留的文件状态。
 
 这里的“discard”在实现上解释为：
 
 - 候选被判定为无效
-- 文件立即删除
-- 后续恢复与任务分配都不再考虑它
+- 文件应被删除
+- 后续恢复与任务分配都不再把它当作正常候选继续推进
 
-当前版本的删除条件有两种：
+再次强调：
+
+- `cleanup_pending` 不是一种新结果
+- 它只是启动扫描阶段对“残留终止文件”的临时命名
+- 它存在的唯一目的，是避免扫描器直接承担删除副作用
+
+当前版本的终止条件有三种：
 
 - `answer_matches_standard = false`
 - `is_duplicate_with_existing_complete_method = true`
+- `gemini_checked = false`
+
+删除时机必须精确定义：
+
+- 某个文件只有在对应工序已经完成并产出终止结果之后，才允许删除
+- 推荐顺序是：先把终止结果写盘，再删除文件
+- 如果程序恰好在“写盘之后、删除之前”中断，那么该文件会暂时残留在磁盘上
+- 这种残留文件在下一次启动扫描时应被识别为 `cleanup_pending`
+- `cleanup_pending` 不是“扫描器判失败”，而是“上一次某个工序已经给出了终止结果，但清理动作还没完成”
 
 这套做法在当前阶段是合理的，因为：
 
@@ -266,12 +382,13 @@
 
 你的这套调整是合理的。
 
-尤其是下面四点是对的：
+尤其是下面五点是对的：
 
 - `cot` 统一成字符串后，下游结构更稳定
 - 去掉第二层主包后，状态不再重复维护
 - 让下一层直接读 CoT 文件，会比先合并再拆更简单
-- 只保留未完成和完整文件，恢复逻辑会更干净
+- 三值状态能明确区分“未完成”和“已完成后的结果”
+- 扫描阶段保持只读，会显著降低误删风险
 
 当前版本建议整理成九个模块。
 
@@ -299,27 +416,49 @@
 - 区分：
   - 完整文件
   - 未完成文件
+  - `cleanup_pending` 文件
 
 当前建议分类规则：
 
 - `is_complete_fragment = true`
   视为完整文件
+- `answer_matches_standard = false`
+  视为 `cleanup_pending`
+- `is_duplicate_with_existing_complete_method = true`
+  视为 `cleanup_pending`
+- `gemini_checked = false`
+  视为 `cleanup_pending`
 - 其余现存文件
   视为未完成文件
 
-当前版本中不存在“已 discard 文件”这一类持久化对象，因为它们已经被删除。
+必须强调：
+
+- `CoTFragmentScanner` 是只读模块
+- 它只负责分类，不负责修正状态，不负责删除文件
+- 它不能把 `null` 推断成失败
+- 它也不能把 `is_complete_fragment = false` 推断成失败
+- 它对 `cleanup_pending` 的标记只存在于本次扫描结果中，不回写文件
 
 ### 7.3 `MethodQuotaInspector`
 
 职责：
 
-- 判断当前每道题理论上需要几个完整解法
+- 对当前题目做最小化的“是否进入多解模式”判断
 
-当前版本建议最小规则：
+当前版本当前只保留最小设计：
 
-- 若 `multi_solution_hint` 为空或不要求多解，则目标完整文件数为 `1`
-- 若 `multi_solution_hint` 明确要求多解，则目标完整文件数由配置决定
-- 当前常见目标值可以是 `3`
+- 若 `multi_solution_hint` 为空或不要求多解，则按单解模式处理
+- 若 `multi_solution_hint` 明确要求多解，则按多解模式处理
+
+当前模块先只负责给出这个最小判断。
+
+更细的内容暂不在这一版写死，例如：
+
+- 多解模式下最终目标数量到底是多少
+- 多解模式下停止条件如何配置
+- 多解模式下是否还要引入别的策略信号
+
+这些细节留待后续补充。
 
 ### 7.4 `GlobalTaskManager`
 
@@ -328,7 +467,7 @@
 - 读取所有选中的工作单元
 - 汇总上游题目列表
 - 汇总当前层现存的 CoT 文件
-- 结合目标解法数量，生成全局待执行任务队列
+- 结合单解/多解模式和当前文件状态，生成全局待执行任务队列
 
 这里的“全局”指的是：
 
@@ -337,7 +476,7 @@
 
 它只负责判断“还有哪些任务没完成”，不负责亲自执行具体检查步骤。
 
-当前版本建议输出两类任务：
+当前版本建议输出三类任务：
 
 1. `resume_fragment`
    继续处理一个已经存在但尚未完成的 CoT 文件
@@ -345,19 +484,25 @@
 2. `create_new_fragment`
    为某道题新建一个新的候选 CoT 文件
 
+3. `cleanup_fragment`
+   清理由上一次终止工序遗留下来的 `cleanup_pending` 文件
+
 当前版本建议的分配策略：
 
 - 先把所有现存未完成文件加入任务队列
-- 再检查哪些题目的完整文件数仍未达到目标
-- 对于“尚未达标且当前没有未完成文件”的题目，加入一个 `create_new_fragment` 任务
+- 再把所有 `cleanup_pending` 文件加入清理任务队列
+- 单解模式下，若当前没有完整文件且也没有未完成文件，则加入一个 `create_new_fragment` 任务
+- 单解模式下，已有完整文件的题目不再分配新的候选任务
+- 多解模式下，当前 spec 先只要求系统保留“继续分配新候选”和“继续执行判重”的能力
+- 多解模式下具体何时停止、目标数量是多少，留待后续补充
 - 同一题目在一次启动中，最多只新增一个新的候选文件
-- 已经达到目标完整数量的题目，不再分配任务
 
 补充说明：
 
 - `GlobalTaskManager` 不需要知道某个未完成文件具体卡在答案检查、判重还是 Gemini
 - 它只需要知道“这个文件还没有完成”
 - 真正恢复到哪一步，由后续执行器根据文件中的标志位自动判断
+- `cleanup_fragment` 的来源只能是磁盘上已经存在终止结果的文件，而不是扫描器新推断出来的失败
 
 ### 7.5 `FragmentTaskExecutor`
 
@@ -366,10 +511,17 @@
 - 接收 `GlobalTaskManager` 下发的单个任务
 - 若任务类型是 `create_new_fragment`，先创建一个新的 CoT 文件
 - 若任务类型是 `resume_fragment`，直接读取现存文件
+- 若任务类型是 `cleanup_fragment`，只完成清理，不重新判定该文件成败
 - 读取文件标志位，自动判断下一步该执行哪个工序
 - 将文件一直推进到“完成”或“删除”为止
 
 它是“导入工序后自动执行未完成部分”的具体承担者。
+
+必须强调：
+
+- `FragmentTaskExecutor` 在恢复时只能依据文件里已经存在的标志位继续推进
+- 它不能把某个 `null` 状态直接改写成失败
+- 删除动作必须建立在某个工序已经产生了终止结果的前提上
 
 ### 7.6 `CoTGenerator`
 
@@ -403,17 +555,18 @@
 - 读取候选文件
 - 检查 `generated_answer` 是否和 `standard_answer` 一致
 - 若一致，则把 `answer_matches_standard = true` 写回文件
-- 若不一致，则直接删除该文件
+- 若不一致，则先把 `answer_matches_standard = false` 写回文件，再删除该文件
 
 ### 7.8 `DuplicateMethodChecker`
 
 职责：
 
 - 读取已经通过答案检查的候选文件
-- 只与现有完整文件比较
-- 判断该候选是否与现有完整解法重复
+- 若当前题目不要求多解，则不调用 GPT，直接把 `is_duplicate_with_existing_complete_method = false` 写回文件
+- 若当前题目要求多解，则只与现有完整文件比较
+- 在要求多解的情况下，调用 GPT 判断该候选是否与现有完整解法重复
 - 若不重复，则把 `is_duplicate_with_existing_complete_method = false` 写回文件
-- 若重复，则直接删除该文件
+- 若重复，则先把 `is_duplicate_with_existing_complete_method = true` 写回文件，再删除该文件
 
 补充说明：
 
@@ -429,9 +582,9 @@
 - Gemini 必须输出一个新的 CoT
 - 用新的 `cot` 覆盖或更新文件中的原始 `cot`
 - 必要时也可更新 `generated_answer`
-- 把 `gemini_checked = true` 写回文件
-- 再把 `is_complete_fragment = true` 写回文件
-- 然后立即保存文件
+- 若通过，则把 `gemini_checked = true` 写回文件
+- 若通过，则再把 `is_complete_fragment = true` 写回文件
+- 若不通过，则先把 `gemini_checked = false` 写回文件，再删除该文件
 
 当前版本假定：
 
@@ -443,14 +596,30 @@
 对单个问题来说，处理顺序固定为：
 
 1. 若没有可恢复文件且仍需新解法，则生成一个新的 CoT 文件
-2. 若该文件还没做答案检查，则运行 `AnswerMatcher`
-3. 若答案检查已通过且还没做判重，则运行 `DuplicateMethodChecker`
-4. 若判重已通过且还没做 Gemini 细查，则运行 `GeminiDetailChecker`
-5. 若 `is_complete_fragment = true`，则该文件视为完整结果
+2. 若 `answer_matches_standard = null`，则运行 `AnswerMatcher`
+3. 若 `answer_matches_standard = true` 且 `is_duplicate_with_existing_complete_method = null`，则进入“重复检查工序”
+4. 若当前题目不要求多解，则该工序直接把 `is_duplicate_with_existing_complete_method = false`
+5. 若当前题目要求多解，则调用 `DuplicateMethodChecker`
+6. 若前两道工序都已完成且结果允许继续，且 `gemini_checked = null`，则运行 `GeminiDetailChecker`
+7. 若 `gemini_checked = true` 且 `is_complete_fragment = true`，则该文件视为完整结果
+
+对三个串行工序来说，统一判定原则是：
+
+- `null` 表示该工序还没完成
+- 非 `null` 表示该工序已经完成
+- 之后是否继续，由该字段自己的语义决定
+
+也就是说：
+
+- `answer_matches_standard = false` 会终止并删除
+- `is_duplicate_with_existing_complete_method = true` 会终止并删除
+- `gemini_checked = false` 会终止并删除
+- 其余已完成结果则允许流向下一工序
 
 如果在中间任何一步程序断掉，下次启动时：
 
 - `GlobalTaskManager` 会重新发现这个未完成文件
+- 若某文件已记录终止结果但尚未删掉，则只把它放入 `cleanup_fragment`
 - `FragmentTaskExecutor` 读取它的标志位
 - 自动从尚未完成的那一步继续执行
 
@@ -477,9 +646,11 @@
 设计原则是：
 
 - 若目标只要一个完整解法，那么收集到一个完整文件就可以停
-- 若目标要三个完整解法，那么必须收集到三个完整文件才停
+- 若题目进入多解模式，则后续应允许继续生成多个完整解法
 
-当前版本建议由 `MethodQuotaInspector` 决定目标数量，由 `GlobalTaskManager` 负责据此分配任务。
+当前版本建议由 `MethodQuotaInspector` 先只做“是否进入多解模式”的最小判断，由 `GlobalTaskManager` 负责据此分配任务。
+
+当前这一版先不把多解模式下的目标数量、停止规则和配置细节写死，留待后续补充。
 
 并且当前版本保留一个重要限制：
 
@@ -506,14 +677,14 @@
 
 你的任务是：
 1. 阅读题目文本、标准答案和图片路径信息
-2. 生成一条简洁、必要、按顺序展开的推理文本
+2. 生成一段完整的 CoT 文本
 3. 生成一个最终答案字符串
 
 输出要求：
 - 只能输出合法 JSON，不要输出任何额外解释
 - 顶层只能有两个字段：`cot` 和 `generated_answer`
 - `cot` 必须是单个字符串，不要输出字符串列表
-- 如有需要，可以在 `cot` 字符串内部用换行写成“步骤1 / 步骤2 / 步骤3”
+- 当前 spec 只约束 `cot` 是文本串，不约束其内部具体格式
 - `generated_answer` 必须是单个字符串
 - 推理内容要围绕解题所必需的信息展开
 - 不要输出空话，不要输出与解题无关的说明
@@ -527,7 +698,7 @@
 
 ```json
 {
-  "cot": "步骤1\n步骤2\n步骤3",
+  "cot": "<model_generated_cot_text>",
   "generated_answer": "最终答案"
 }
 ```
@@ -539,16 +710,18 @@
 1. 枚举 `layer_problem/` 下的目标工作单元
 2. `ProblemPackageReader` 读取各工作单元的 `ProblemPackage`
 3. `CoTFragmentScanner` 扫描 `layer_cot/<file_id>/` 下现存 CoT 文件
-4. `MethodQuotaInspector` 计算每道题需要的完整解法数量
+4. `MethodQuotaInspector` 判断每道题当前是单解模式还是多解模式
 5. `GlobalTaskManager` 汇总上游题目和当前文件状态，生成全局任务队列
-6. `FragmentTaskExecutor` 逐个执行任务
-7. 若任务需要新建候选，则 `CoTGenerator` 生成并立即落盘
-8. `AnswerMatcher` 处理尚未完成答案检查的文件
-9. `DuplicateMethodChecker` 处理尚未完成判重的文件
-10. `GeminiDetailChecker` 处理尚未完成细查的文件
-11. 每一步一旦更新文件，都立即写盘
-12. 若某文件在某一步被淘汰，则立即删除
-13. 程序结束时，不再执行“合并主包”步骤
+6. `FragmentTaskExecutor` 先处理 `cleanup_fragment`
+7. `FragmentTaskExecutor` 再逐个执行恢复和新建任务
+8. 若任务需要新建候选，则 `CoTGenerator` 生成并立即落盘
+9. `AnswerMatcher` 处理尚未完成答案检查的文件
+10. 若当前题目要求多解，则 `DuplicateMethodChecker` 处理尚未完成判重的文件
+11. 若当前题目不要求多解，则直接把重复检查工序记为已完成且结果允许继续
+12. `GeminiDetailChecker` 处理尚未完成细查的文件
+13. 每一步一旦更新文件，都立即写盘
+14. 若某文件在某一步被淘汰，则该工序先写终止结果，再删除文件
+15. 程序结束时，不再执行“合并主包”步骤
 
 ## 13. 当前版本暂不展开的内容
 
@@ -558,7 +731,7 @@
 - Gemini API 的具体客户端写法
 - 线程池大小
 - `AnswerMatcher` 的精确匹配规则
-- `DuplicateMethodChecker` 的具体判重策略
+- `DuplicateMethodChecker` 调用 GPT 时的具体 prompt
 - `GeminiDetailChecker` 的具体 prompt
 - 是否保留原始生成版 CoT 作为额外审计字段
 - 多解目标数量的最终配置规则
@@ -569,7 +742,9 @@
 
 - `cot` 是字符串，不是列表
 - 第二层只维护单文件粒度的 CoT 结果
-- 不再生成第二层主包
-- 失败或重复候选直接删除
+- CoT 内部具体格式暂未固定
+- 三个串行工序统一使用三值状态
+- 初始化扫描器保持只读
+- 失败或重复候选只允许在对应工序完成后删除
 - 由全局任务管理器负责发现未完成任务
 - 下一层直接读取完整 CoT 文件

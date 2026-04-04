@@ -41,3 +41,45 @@ class Raw2ProblemsConfig:
 
 
 RAW2PROBLEMS_CONFIG = Raw2ProblemsConfig()
+
+
+@dataclass(frozen=True)
+class Problems2CotConfig:
+    input_root: Path = PROJECT_ROOT / "layer_problem"
+    output_root: Path = PROJECT_ROOT / "layer_CoT"
+    package_file_suffix: str = ".json"
+    fragment_file_suffix: str = ".json"
+    stage_name: str = "problem_to_cot"
+    problem_list_field: str = "problems"
+    problem_id_field: str = "problem_id"
+    question_text_field: str = "question_text"
+    standard_answer_field: str = "standard_answer"
+    images_field: str = "images"
+    multi_solution_hint_field: str = "multi_solution_hint"
+    source_meta_field: str = "source_meta"
+    ingest_status_field: str = "ingest_status"
+    method_id_field: str = "method_id"
+    cot_field: str = "cot"
+    generated_answer_field: str = "generated_answer"
+    answer_matches_field: str = "answer_matches_standard"
+    duplicate_check_field: str = "is_duplicate_with_existing_complete_method"
+    gemini_checked_field: str = "gemini_checked"
+    is_complete_field: str = "is_complete_fragment"
+    multi_solution_false_values: tuple[str, ...] = (
+        "",
+        "0",
+        "false",
+        "no",
+        "none",
+        "single",
+        "one",
+    )
+    answer_match_strip_whitespace: bool = True
+    answer_match_collapse_whitespace: bool = True
+    json_encoding: str = "utf-8"
+    json_indent: int = 2
+    ensure_ascii: bool = False
+    target_work_units: tuple[str, ...] = ()
+
+
+PROBLEMS2COT_CONFIG = Problems2CotConfig()
