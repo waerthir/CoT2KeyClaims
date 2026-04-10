@@ -1,0 +1,28 @@
+有，而且它**不是用 “key claims” 这个词**，而是用 **“key steps”**。你找不到“key claims”，大概率就是因为论文里根本没这么叫。
+
+这篇论文在 **2.2 Data Annotation and Review** 里给了一个很直接的定义：
+
+> **“Key steps are defined as those that must be done to reach the correct answer.”**
+> 也就是：**关键步骤被定义为，为了得到正确答案必须完成的那些步骤。** 
+
+而且作者紧接着又进一步说明了这些 key steps 的构成：
+
+* **中间步骤分成两类**：
+
+  1. **inference conclusion**（推理结论）
+  2. **image caption**（图像描述） 
+* **最终答案也算一个结论性推理**。
+* 这些步骤都会被**压缩到最简形式**，只保留**核心结论**和**相关视觉元素描述**。
+
+所以更准确地说，这篇论文里的层次是这样的：
+
+* **key steps** = 总概念
+* **key inference conclusions** + **key image captions** = key steps 的两部分
+
+你在图里看到的 **Key Conclusion** 和 **Key Caption**，其实就是这个定义在标注层面的展开，不是另一个新概念。图2和后面的示例图都在这么用。
+
+所以结论很简单：
+
+**有定义。**
+但定义的是 **key steps**，不是 **key claims**。
+如果你愿意，我可以把论文里所有和 **key step / key conclusion / key caption** 相关的原文，按页给你摘出来并对照解释。

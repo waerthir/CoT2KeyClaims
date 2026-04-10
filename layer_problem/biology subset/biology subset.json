@@ -1,0 +1,30 @@
+{
+  "file_id": "biology",
+  "stage": "raw_to_problem",
+  "source_file_name": "biology.json",
+  "problems": [
+    {
+      "problem_id": "prob_d993657b93b03f02eec4d030",
+      "question_text": "8. 科研人员对四种植物进行不同光照处理实验，记录开花情况如下表。请根据实验结果回答下列问题。\n（在原题干后面追加）若对植物丁进行人工补光以延长日照时间，它的开花表现更可能出现什么变化？",
+      "standard_answer": "开花延迟",
+      "images": [
+        "test/biology_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    },
+    {
+      "problem_id": "prob_a693308f9d019cb5d3520e5d",
+      "question_text": "8. 科研人员对四种植物进行不同光照处理实验，记录开花情况如下表。请根据实验结果回答下列问题。\n（在原题干后面追加）能否据此断言“植物开花不受环境因素影响，完全由遗传物质决定”？",
+      "standard_answer": "不能",
+      "images": [
+        "test/biology_question_00001.png"
+      ],
+      "source_meta": {},
+      "multi_solution_hint": null,
+      "ingest_status": "ready"
+    }
+    
+  ]
+}

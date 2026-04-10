@@ -1,0 +1,143 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+@dataclass(frozen=True)
+class OpenAICompatibleBackendConfig:
+    name: str
+    base_url: str
+    api_key: str
+    model: str
+    timeout_seconds: float = 120.0
+    temperature: float = 0.0
+    max_tokens: int = 4096
+
+
+@dataclass(frozen=True)
+class Raw2ProblemsConfig:
+    input_root: Path = PROJECT_ROOT / "layer_input"
+    output_root: Path = PROJECT_ROOT / "layer_problem"
+    input_file_glob: str = "*.json"
+    image_dir_name: str = "test"
+    output_file_suffix: str = ".json"
+    stage_name: str = "raw_to_problem"
+    allow_empty_picture: bool = True
+    raw_picture_field: str = "picture"
+    raw_question_field: str = "question"
+    raw_standard_answer_fields: tuple[str, ...] = ("standard_answer", "answer")
+    required_problem_fields: tuple[str, ...] = (
+        "problem_id",
+        "question_text",
+        "standard_answer",
+        "images",
+        "multi_solution_hint",
+    )
+    optional_problem_fields: tuple[str, ...] = ("source_meta", "ingest_status")
+    problem_id_prefix: str = "prob_"
+    problem_id_hex_length: int = 24
+    hash_algorithm: str = "sha1"
+    path_separator: str = "/"
+    source_meta_default: dict = field(default_factory=dict)
+    multi_solution_hint_default: None = None
+    ingest_status_default: str = "ready"
+    json_encoding: str = "utf-8"
+    json_indent: int = 2
+    ensure_ascii: bool = False
+    target_work_units: tuple[str, ...] = ()
+
+
+RAW2PROBLEMS_CONFIG = Raw2ProblemsConfig()
+
+
+@dataclass(frozen=True)
+class Problems2CotConfig:
+    input_root: Path = PROJECT_ROOT / "layer_problem"
+    output_root: Path = PROJECT_ROOT / "layer_CoT"
+    image_root: Path = PROJECT_ROOT / "layer_input"
+    package_file_suffix: str = ".json"
+    fragment_file_suffix: str = ".json"
+    stage_name: str = "problem_to_cot"
+    problem_list_field: str = "problems"
+    problem_id_field: str = "problem_id"
+    question_text_field: str = "question_text"
+    standard_answer_field: str = "standard_answer"
+    images_field: str = "images"
+    multi_solution_hint_field: str = "multi_solution_hint"
+    source_meta_field: str = "source_meta"
+    ingest_status_field: str = "ingest_status"
+    method_id_field: str = "method_id"
+    cot_field: str = "cot"
+    generated_answer_field: str = "generated_answer"
+    answer_matches_field: str = "answer_matches_standard"
+    duplicate_check_field: str = "is_duplicate_with_existing_complete_method"
+    gemini_checked_field: str = "gemini_checked"
+    is_complete_field: str = "is_complete_fragment"
+    multi_solution_false_values: tuple[str, ...] = (
+        "",
+        "0",
+        "false",
+        "no",
+        "none",
+        "single",
+        "one",
+    )
+    answer_match_strip_whitespace: bool = True
+    answer_match_collapse_whitespace: bool = True
+    cot_generation_backend: OpenAICompatibleBackendConfig = field(
+        default_factory=lambda: OpenAICompatibleBackendConfig(
+            name="cot_generation",
+            base_url="",
+            api_key="sk-",
+            model="gpt-4.1",
+            timeout_seconds=120.0,
+            temperature=0.2,
+            # max_tokens=4000,
+        )
+    )
+    duplicate_check_backend: OpenAICompatibleBackendConfig = field(
+        default_factory=lambda: OpenAICompatibleBackendConfig(
+            name="duplicate_check",
+            base_url="ht",
+            api_key="sk-I",
+            model="gpt-4.1-mini",
+            timeout_seconds=90.0,
+            temperature=0.0,
+            # max_tokens=2000,
+        )
+    )
+    gemini_review_backend: OpenAICompatibleBackendConfig = field(
+        default_factory=lambda: OpenAICompatibleBackendConfig(
+            name="gemini_review",
+            base_url="http",
+            api_key="sk-PxB",
+            model="gemini-2.0-flash",
+            timeout_seconds=120.0,
+            temperature=0.0,
+            # max_tokens=4000,
+        )
+    )
+    cot_generation_system_prompt: str = (
+        "You are a multimodal reasoning assistant. Solve the problem by using the text and attached "
+        "images, then return JSON only with keys cot and generated_answer."
+    )
+    duplicate_check_system_prompt: str = (
+        "You compare candidate solution methods. Return JSON only with keys is_duplicate and reason. "
+        "Judge whether the candidate method is materially the same as any existing complete method."
+    )
+    gemini_review_system_prompt: str = (
+        "You are a multimodal verification assistant. Check the candidate solution against the problem "
+        "statement, standard answer, and attached images. Return JSON only with keys passed, cot, "
+        "generated_answer, and reason."
+    )
+    json_encoding: str = "utf-8"
+    json_indent: int = 2
+    ensure_ascii: bool = False
+    target_work_units: tuple[str, ...] = ()
+
+
+PROBLEMS2COT_CONFIG = Problems2CotConfig()

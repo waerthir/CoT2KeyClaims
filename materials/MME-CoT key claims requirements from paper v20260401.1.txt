@@ -1,0 +1,244 @@
+能看到，而且我刚刚是按整篇 PDF 去核对的。结论是：
+
+**有，除了那句定义之外，论文里关于 key steps 还有不少补充信息。**
+但它**没有给出一个更形式化的“标注手册式粒度规范”**，也就是没有写成“每一步最多多少词 / 必须是什么语法 / 何时拆成两步”那种操作细则。它给的是**定义 + 类型划分 + 压缩原则 + 多解处理原则 + 若干示例**。
+
+你要找“粒度”，最有用的是下面这些点：
+
+## 1. 最核心定义
+
+论文在 2.2 明确说：
+
+* **Key steps are defined as those that must be done to reach the correct answer.**
+* 也就是：**为了得到正确答案，必须完成的那些步骤**。
+
+这说明它不是“所有合理步骤”，也不是“所有模型可能会说的话”，而是**必要步骤**。
+
+## 2. key steps 分成两类
+
+论文说中间步骤分成两类：
+
+* **inference conclusion**
+* **image caption** 
+
+后面在 3.1 又把它形式化成：
+
+* ( S = C \cup I )
+* ( C ) 是 **key inference conclusions**
+* ( I ) 是 **key image captions** 
+
+所以论文里的 “key steps” 本质上就是：
+
+* **关键图像描述**
+* **关键推理结论**
+
+这两类的并集。
+
+## 3. 最终答案也算 key step
+
+论文明确写了：
+
+* **final answer is also included as a concluding inference**。
+
+所以它的 key steps 并不只包括“中间推理”，**最后答案本身也被当成一个 concluding inference**。
+
+## 4. 他们对粒度的直接约束：尽量压到最小
+
+这是你最关心的地方。论文原文说：
+
+* **All the steps are reduced to the simplest form, retaining only core conclusions and relevant visual element descriptions.** 
+
+这句话非常关键。它说明他们想要的粒度是：
+
+* **不是完整自然语言推理段落**
+* **不是证明细节全展开**
+* **而是压缩后的最小必要结论单位**
+
+也就是只保留：
+
+* **core conclusions**
+* **relevant visual element descriptions**
+
+所以从作者意图看，key step 的粒度更接近：
+
+* “三角形 ABC 与 DEF 相似”
+* “AB/DE = BC/FE”
+* “图中有两个三角形，FE=3, DE=x, CB=15, AB=45”
+* “正确答案是 D”
+
+而**不是**：
+
+* “因为这两个角相等，再结合三角形内角和 180°，所以第三个角也相等，因此……”
+  这种完整展开版长句。
+
+## 5. 多种解法时，所有方法都要标
+
+论文还说：
+
+* **for problems with multiple solutions, annotators are required to provide all possible methods**。
+
+这意味着 key steps 不是只对应一条唯一链路。
+对多解题，ground truth 里允许有**多套 key steps**。后面 recall 公式里也对应了这一点：对多种方法，取**匹配度最高**的那一套来算。
+
+这也反过来说明它的粒度不是“某一种特定表述”，而是**某种解法中的必要节点**。
+
+## 6. 评估时，key steps 主要拿来做 recall，不是硬性逐字匹配全部 precision
+
+在 3.1 里，论文说：
+
+* recall 是看模型响应里是否出现了每个 key step
+* precision 是把模型输出切成步骤，再判断这些步骤是否正确
+* 对 precision 来说，一个步骤如果**存在于 S**，当然算对；但即使**不在 S**，只要它逻辑正确或忠实描述图像，也也可以算对。
+
+这说明 key steps 的作用更像是：
+
+* **ground-truth 必要信息骨架**
+  而不是
+* **唯一允许的逐步表达**
+
+所以从粒度角度说，key steps 更接近“最小必要骨架”，而不是“完整标准解”。
+
+## 7. 图4/图5 进一步透露了他们心里的 step 粒度
+
+图4 里作者把模型输出切分成 step，并要求每个 step 属于三类之一：
+
+* logical inference
+* image caption
+* background information 
+
+而且在附录 E 的评测 prompt 里又补充了 step requirement：
+
+* **Each step must be atomic (one conclusion per step)**
+* **No content duplication across steps**
+* 初始分析算 background。
+
+这其实是全文里**最接近“粒度规范”**的地方。虽然这是针对**模型输出切步**写的，不是直接对 key step annotation 写的，但会强烈暗示作者偏好的 step 粒度是：
+
+* **atomic**
+* **one conclusion per step**
+* **不重复**
+
+所以如果你问“key steps 理想粒度到底多细”，最接近论文原意的答案是：
+
+**一个 key step 应该是一个原子化的、不可再压缩的必要结论，或者一个与解题直接相关的必要图像描述。**
+
+## 8. 表1 给了整体统计，也能反推出粒度不算太细
+
+表1 里有几个很有用的数字：
+
+* 总 key step annotation：**3865**
+* 推理问题：**837**
+* 平均 inference conclusions：**3.2**
+* 平均 image captions：**1.4** 
+
+这意味着对一个推理题，平均大概只有：
+
+* 3.2 个推理结论
+* 1.4 个图像描述
+
+合起来也就四五个关键单元左右。
+
+这非常能说明问题：
+**他们的 key steps 粒度并不细。**
+如果粒度很细，平均每题不会只有这么少的关键步骤。
+
+## 9. 示例最能说明粒度
+
+论文附录示例里，某道几何题的 key steps annotation 是：
+
+* Key Caption:
+  “The image shows two triangle FDE and CAB, FE=3, DE=x, CB=15, AB=45”
+* Key Conclusion:
+
+  1. Triangle ABC is similar to triangle DEF
+  2. AB/DE = BC/FE
+  3. The length of DE is 9, which corresponds to choice D
+  4. The correct answer is D 
+
+这个例子很清楚地说明：
+
+* 他们**不会**把每个代数变形都单独标成 key step
+* 他们保留的是**解题骨架节点**
+* 连“DE=45/5”“45/DE=15/3”“45/DE=5”这种中间算式，在 key annotation 里都**没有单独列成 key steps**。
+
+另一个健康食品例子里，key steps 也很粗：
+
+* Key Caption:
+
+  1. Object 1 seems like a fruit and nut salad
+  2. Object 2 seems like a fried or roasted chicken
+* Key Conclusion:
+
+  1. Compared with Object 2, Object 1 seems healthier...
+  2. The correct answer is A. 
+
+这再次说明：
+**key steps 不是把所有观察都拆开，而是保留对答案真正必要的最小骨架。**
+
+## 10. 论文里还有一句很重要的话：long CoT 可能跳过 key steps
+
+在实验分析里作者说：
+
+* **Long CoT does not necessarily cover key steps**
+* 有些模型虽然最后答对了，但会**skip intermediate steps**。
+
+这也从侧面证明，作者眼中的 key steps 就是：
+**如果你真在“逐步推理”，理论上应当出现的那些中间骨架步骤。**
+
+---
+
+## 归纳成你最想知道的“粒度判断”
+
+如果只根据这篇论文本身，不额外脑补，最稳妥的结论是：
+
+### 他们的 key steps 粒度是：
+
+**偏粗粒度的必要骨架级标注。**
+
+具体特点是：
+
+* 不是完整自然语言解释
+* 不是所有中间运算
+* 不是所有可观察细节
+* 是**达到正确答案所必需的**结论或图像信息
+* 还会被**压缩到最简形式**
+* 一题通常只有**少量几个**关键结论/关键描述
+* 多解题允许**多套骨架**并存。
+
+### 更像什么
+
+更像：
+
+* **solution sketch**
+* **minimal proof skeleton**
+* **necessary reasoning landmarks**
+
+### 不像什么
+
+不像：
+
+* 全步骤证明
+* 逐 token / 逐句思维链
+* 严格形式逻辑证明树
+
+---
+
+## 最后一个直接回答
+
+你问“它里面还有其他任何关于 key steps 的内容吗？如果有，务必列出来。”
+
+有，核心就是这几条：
+
+1. 定义：必须完成才能得到正确答案的步骤。
+2. 类型：分为 inference conclusion 和 image caption。
+3. 最终答案也算 concluding inference。
+4. 所有步骤压缩到 simplest form，只保留 core conclusions 和 relevant visual element descriptions。
+5. 多解题要提供 all possible methods。
+6. 形式化表示：(S=C\cup I)。
+7. recall 用 key steps 做匹配；多解时取最匹配的方法。
+8. precision 不要求模型步骤必须逐条等于 key steps；只要逻辑/图像描述正确也可算对。
+9. 表1 统计显示平均每题关键结论和关键描述都不多，说明粒度偏粗。
+10. 附录示例显示 key steps 通常是“相似”“比例关系”“最终数值”“正确选项”这种骨架节点，而不是每个中间算式。
+11. 附录 prompt 还透露 step 粒度偏好是 atomic / one conclusion per step，这虽是给 step partition 的，但能帮助理解作者的粒度观。
+
+如果你愿意，我下一条可以直接帮你把这篇论文里的 key steps 粒度，总结成一个你可以放进论文评述里的正式段落。
